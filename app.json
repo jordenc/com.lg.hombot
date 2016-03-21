@@ -14,7 +14,7 @@
       "large": "./assets/images/large.jpg",
       "small": "./assets/images/small.jpg"
     },
-    "category": "vacuumcleaner",
+    "category": "appliances",
     "description": {
     	"en": "Control your LG Hombot vacuumcleaner with Homey",
 		"nl": "Bestuur je LG Hombot stofzuiger met Homey"
