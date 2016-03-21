@@ -1,7 +1,8 @@
 {
     "id": "com.lg.hombot",
     "name": {
-        "en": "LG Hombot"
+        "en": "LG Hombot",
+        "nl": "LG Hombot"
     },
     "version": "0.0.1",
     "compatibility": "0.x || 1.x",
@@ -14,11 +15,6 @@
       "small": "./assets/images/small.jpg"
     },
     "category": "vacuumcleaner",
-    "capabilities": {
-	    "getable": true,
-	    "setable": true
-	    //["cleaning","spot_cleaning","docked","charging","stopped"]
-    },
     "description": {
     	"en": "Control your LG Hombot vacuumcleaner with Homey",
 		"nl": "Bestuur je LG Hombot stofzuiger met Homey"
@@ -28,26 +24,31 @@
     },
     "drivers": [
         {
-            "id": "vacuum"
+            "id": "vacuum",
+            "name": {
+	        	"en": "LG Hombot",
+	        	"nl": "LG Hombot"  
+            },
+            "class": "vacuum",
+            "capabilities": [ "" ],
             "pair": [
                 {
-                    "id": "start" // points to ./drivers/bulb/pair/start.html
+                    "id": "start"
                 },
                 {
                     "id": "list_devices",
-                    "template": "list_devices", // we use a system template here, for consistency, and less work for us!
+                    "template": "list_devices",
                     "navigation": {
-                        "next": "add_cleaner" // show pair view with id `add_bulbs` when clicked `Next`
+                        "next": "add_cleaner"
                     }
                 },
                 {
                     "id": "add_cleaner",
-                    "template": "add_devices" // again, use a template
+                    "template": "add_devices"
                 }
             ]
         }
-    ],
-    
+    ], 
     "flow": {
         "actions": [
         {
@@ -84,7 +85,6 @@
               }
             ]
         },
-        
         {
             "id": "gohome",
             "title": {
@@ -101,7 +101,7 @@
                 }
               }
             ]
-        },
-
-
+        }
+       ]
+    }
 }
