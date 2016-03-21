@@ -68,8 +68,8 @@ function sendCommand (cmd, hostIP) {
 		  hostname: hostIP,
 		  port: 6260,
 		  path: '/json.cgi?%7b%22COMMAND%22:%22' + cmd + '%22%7d',
-		  agent: false  // create a new agent just for this one request
-	}, (res) => {
+		  agent: false
+		}, function(res){
 		var body = '';
 	  res.on('data', function(chunk) {
 	    body += chunk;
