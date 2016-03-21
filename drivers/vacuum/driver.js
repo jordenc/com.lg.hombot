@@ -43,20 +43,26 @@ module.exports.pair = function (socket) {
 // flow action handlers
 
 Homey.manager('flow').on('action.start', function( callback, args ){
-	sendCommand('CLEAN_START', args.device.ipaddress);
+	sendCommand('%7b%22COMMAND%22:%22CLEAN_START%22%7d', args.device.ipaddress);
 	callback(null, true); 
 });
 
 Homey.manager('flow').on('action.pause', function( callback, args ){
-	sendCommand('PAUSE', args.device.ipaddress);
+	sendCommand('%7b%22COMMAND%22:%22PAUSE%22%7d', args.device.ipaddress);
 	callback(null, true); 
 });
 
 Homey.manager('flow').on('action.gohome', function( callback, args ){
-	sendCommand('HOMING', args.device.ipaddress);
+	sendCommand('%7b%22COMMAND%22:%22HOMING%22%7d', args.device.ipaddress);
 	callback( null, true ); 
 });
 
+/*
+Homey.manager('flow').on('action.turbo', function( callback, args ){
+	sendCommand('turbo', args.device.ipaddress);
+	callback( null, true ); 
+});
+*/
 
 //
 
@@ -67,7 +73,7 @@ function sendCommand (cmd, hostIP) {
 	http.get({
 		  hostname: hostIP,
 		  port: 6260,
-		  path: '/json.cgi?%7b%22COMMAND%22:%22' + cmd + '%22%7d',
+		  path: '/json.cgi?' + cmd,
 		  agent: false
 		}, function(res){
 		var body = '';
