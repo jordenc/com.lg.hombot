@@ -1,0 +1,107 @@
+{
+    "id": "com.lg.hombot",
+    "name": {
+        "en": "LG Hombot"
+    },
+    "version": "0.0.1",
+    "compatibility": "0.x || 1.x",
+    "author": {
+        "name": "Chamid Media",
+        "email": "info@chamidmedia.nl"
+    },
+    "images": {
+      "large": "./assets/images/large.jpg",
+      "small": "./assets/images/small.jpg"
+    },
+    "category": "vacuumcleaner",
+    "capabilities": {
+	    "getable": true,
+	    "setable": true
+	    //["cleaning","spot_cleaning","docked","charging","stopped"]
+    },
+    "description": {
+    	"en": "Control your LG Hombot vacuumcleaner with Homey",
+		"nl": "Bestuur je LG Hombot stofzuiger met Homey"
+    },
+    "dependencies": {
+    		"net": "*"
+    },
+    "drivers": [
+        {
+            "id": "vacuum"
+            "pair": [
+                {
+                    "id": "start" // points to ./drivers/bulb/pair/start.html
+                },
+                {
+                    "id": "list_devices",
+                    "template": "list_devices", // we use a system template here, for consistency, and less work for us!
+                    "navigation": {
+                        "next": "add_cleaner" // show pair view with id `add_bulbs` when clicked `Next`
+                    }
+                },
+                {
+                    "id": "add_cleaner",
+                    "template": "add_devices" // again, use a template
+                }
+            ]
+        }
+    ],
+    
+    "flow": {
+        "actions": [
+        {
+            "id": "start",
+            "title": {
+                "en": "Start cleaning",
+                "nl": "Stofzuigen starten"
+            },
+            "args": [
+              {
+                "name": "device",
+                "type": "device",
+                "placeholder": {
+                  "en": "Select vacuum cleaner",
+                  "nl": "Selecteer stofzuiger"
+                }
+              }
+            ]
+        },
+        {
+            "id": "pause",
+            "title": {
+                "en": "Pause cleaning",
+                "nl": "Uitschakelen/standby"
+            },
+            "args": [
+              {
+                "name": "device",
+                "type": "device",
+                "placeholder": {
+                  "en": "Select vacuum cleaner",
+                  "nl": "Selecteer stofzuiger"
+                }
+              }
+            ]
+        },
+        
+        {
+            "id": "gohome",
+            "title": {
+                "en": "Return to homestation",
+                "nl": "Terug naar laadstation"
+            },
+            "args": [
+              {
+                "name": "device",
+                "type": "device",
+                "placeholder": {
+                  "en": "Select vacuum cleaner",
+                  "nl": "Selecteer stofzuiger"
+                }
+              }
+            ]
+        },
+
+
+}
