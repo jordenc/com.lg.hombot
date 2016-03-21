@@ -29,6 +29,10 @@
 	        	"en": "LG Hombot",
 	        	"nl": "LG Hombot"  
             },
+            "images": {
+              	"large": "drivers/receiver/assets/images/large.jpg",
+			  	"small": "drivers/receiver/assets/images/small.jpg"
+          	},
             "class": "vacuum",
             "capabilities": [ "" ],
             "pair": [
