@@ -58,6 +58,46 @@ Homey.manager('flow').on('action.gohome', function( callback, args ){
 });
 
 /*
+	Zu erst muss eine Login-Session am Hom-Bot generiert werden, dazu sendet man verschlüsselt {\"CONNECT\":\"REQUEST\"} auf Port 4002. 
+Anschließend kann auf Port 4000 einer von zahlreichen JSON Befehlen eingeliefert werden: 
+
+Ausgaben: 
+{\"CLEANING_TIME\":\"REQUEST\"} = Wie lange reinigt der Hom-Bot bereits
+{\"DIAGNOSIS\":{\"INNER_STATE\":\"REQUEST\"}} = 
+{\"DIAGNOSIS\":{\"RECENT\":\"REQUEST\"}} = 
+{\"DIAGNOSIS\":\"REQUEST\"} = 
+
+
+Befehle: 
+	{\"COMMAND\":\"CLEAN_START\"} = Reinigung starten
+{\"NICKNAME\":{\"SET\":\"NAME_DES_HOMBOT\"}} = Dem Hom-Bot einen Namen geben (wahrscheinlich für die Spracherkennung)
+{\"COMMAND\":{\"REPEAT\":\"true\"}} = Wiederholte Reinigung ein (oder false für aus)
+{\"COMMAND\":{\"TURBO\":\"true\"}} = Turbo-Modus ein (oder false für aus)
+{\"COMMAND\":{\"VOICE\":\"MALE\"}} = männliche Sprachausgabe (oder FEMALE für weibliche Sprachausgabe)
+{\"COMMAND\":{\"CLEAN_MODE\":\"CLEAN_SPOT\"}} = Spot-Modus
+{\"COMMAND\":{\"CLEAN_MODE\":\"CLEAN_SB\"}} = Cell-by-Cell Modus
+{\"COMMAND\":{\"CLEAN_MODE\":\"CLEAN_ZZ\"}} = Zick-Zack Modus
+{\"JOY\":\""FORWARD"\"} = lässt den Robot vorfährts fahren
+{\"JOY\":\""FORWARD_LEFT"\"} = links vorfährts
+{\"JOY\":\""FORWARD_RIGHT"\"} = rechts vorfährts
+{\"JOY\":\""LEFT"\"} = links 
+{\"JOY\":\""RIGHT"\"} = rechts
+{\"JOY\":\""BACKWARD"\"} = zurück 
+{\"JOY\":\""BACKWARD_LEFT"\"} = links zurück
+{\"JOY\":\""BACKWARD_RIGHT"\"} = rechtszurück
+{\"JOY\":\""RELEASE"\"} = Steuerung beenden?
+	{\"COMMAND\":\"HOMING\"} = In die Ladestation fahren
+	{\"COMMAND\":\"PAUSE\"} = Reinigung pausieren
+{\"BLACKBOX\":\"REQUEST_ABSTRACT\"} = liefert verschiedene Informationen (Firmware-Version, Batterie-Stand, usw.) zurück, vermutlich auch die aktuelle Karte
+{\"DIAGNOSIS\":\"STOP\"} = Diagnose beenden
+
+Session:
+{\"CONNECT\":\"REQUEST\"} = JSON Session starten (auf Port 4002!)
+{\"SESSION\":\"ALIVE\"} = JSON Session aufrechthalten
+
+*/
+
+/*
 Homey.manager('flow').on('action.turbo', function( callback, args ){
 	sendCommand('turbo', args.device.ipaddress);
 	callback( null, true ); 
@@ -79,6 +119,7 @@ function sendCommand (cmd, hostIP) {
 		var body = '';
 	  res.on('data', function(chunk) {
 	    body += chunk;
+	    Homey.log("Got data: " + chunk);
 	  });
 	  res.on('end', function() {
 	    Homey.log(body);
