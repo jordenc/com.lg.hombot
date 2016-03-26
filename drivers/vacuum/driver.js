@@ -97,12 +97,12 @@ Session:
 
 */
 
-/*
 Homey.manager('flow').on('action.turbo', function( callback, args ){
-	sendCommand('turbo', args.device.ipaddress);
+	
+	var cmd = encodeURI('{\"COMMAND\":{\"TURBO\":\"true\"}})';
+	sendCommand(cmd, args.device.ipaddress);
 	callback( null, true ); 
 });
-*/
 
 //
 
