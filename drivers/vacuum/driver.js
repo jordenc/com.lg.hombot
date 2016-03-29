@@ -99,7 +99,7 @@ Session:
 
 Homey.manager('flow').on('action.turbo', function( callback, args ){
 	
-	var cmd = encodeURI('{\"COMMAND\":{\"TURBO\":\"true\"}})';
+	var cmd = encodeURI('{\"COMMAND\":{\"TURBO\":\"true\"}}');
 	sendCommand(cmd, args.device.ipaddress);
 	callback( null, true ); 
 });
