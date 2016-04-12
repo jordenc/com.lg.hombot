@@ -109,8 +109,7 @@ Homey.manager('flow').on('condition.cleaning', function(callback, args){
 });
 
 Homey.manager('flow').on('condition.reachable', function(callback, args){
-	//getStatus('JSON_ROBOT_STATE', args.device.ipaddress, callback);
-	getStatus('JSON_ROBOT_STATE', '192.168.1.223', callback);
+	getStatus('JSON_ROBOT_STATE', args.device.ipaddress, callback);
 });
 
 Homey.manager('flow').on('condition.charging', function( callback, args ){
@@ -160,7 +159,7 @@ function sendCommand (cmd, hostIP, callback) {
 
 function getStatus (cmd, hostIP, callback) {
 
-	Homey.log ("LG Hombot app - getting status.txt and compare it to " + cmd + " on " + hostIP);
+	Homey.log ("LG Hombot app - get status.txt and compare it to " + cmd + " on " + hostIP);
 	
 	http.get({
 		  hostname: hostIP,
