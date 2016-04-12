@@ -43,18 +43,15 @@ module.exports.pair = function (socket) {
 // flow action handlers
 
 Homey.manager('flow').on('action.start', function( callback, args ){
-	sendCommand('%7b%22COMMAND%22:%22CLEAN_START%22%7d', args.device.ipaddress);
-	callback(null, true); 
+	sendCommand('%7b%22COMMAND%22:%22CLEAN_START%22%7d', args.device.ipaddress, callback); 
 });
 
 Homey.manager('flow').on('action.pause', function( callback, args ){
-	sendCommand('%7b%22COMMAND%22:%22PAUSE%22%7d', args.device.ipaddress);
-	callback(null, true); 
+	sendCommand('%7b%22COMMAND%22:%22PAUSE%22%7d', args.device.ipaddress, callback); 
 });
 
 Homey.manager('flow').on('action.gohome', function( callback, args ){
-	sendCommand('%7b%22COMMAND%22:%22HOMING%22%7d', args.device.ipaddress);
-	callback( null, true ); 
+	sendCommand('%7b%22COMMAND%22:%22HOMING%22%7d', args.device.ipaddress, callback);
 });
 
 /*
@@ -100,13 +97,28 @@ Session:
 Homey.manager('flow').on('action.turbo', function( callback, args ){
 	
 	var cmd = encodeURI('{\"COMMAND\":{\"TURBO\":\"true\"}}');
-	sendCommand(cmd, args.device.ipaddress);
-	callback( null, true ); 
+	sendCommand(cmd, args.device.ipaddress, callback);
+	
+});
+
+
+// CONDITIONS:
+
+Homey.manager('flow').on('condition.cleaning', function(callback, args){
+	getStatus('CLEANING', args.device.ipaddress, callback);
+});
+
+Homey.manager('flow').on('condition.unreachable', function(callback, args){
+	
+});
+
+Homey.manager('flow').on('condition.charging', function( callback, args ){
+	
 });
 
 //
 
-function sendCommand (cmd, hostIP) {
+function sendCommand (cmd, hostIP, callback) {
 
 	Homey.log ("LG Hombot app - sending " + cmd + " to " + hostIP);
 	
@@ -123,9 +135,39 @@ function sendCommand (cmd, hostIP) {
 	  });
 	  res.on('end', function() {
 	    Homey.log(body);
+	    callback(null, true);
 	  });
 	}).on('error', function(e) {
 	  Homey.log("Got error: " + e.message);
+	  callback(null, false);
+	});
+
+	Homey.log("done");
+	
+}
+
+function getStatus (cmd, hostIP, callback) {
+
+	Homey.log ("LG Hombot app - getting status.txt and compare it to " + cmd + " on " + hostIP);
+	
+	http.get({
+		  hostname: hostIP,
+		  port: 6260,
+		  path: '/status.txt',
+		  agent: false
+		}, function(res){
+		var body = '';
+	  res.on('data', function(chunk) {
+	    body += chunk;
+	    Homey.log("Got data: " + chunk);
+	  });
+	  res.on('end', function() {
+	    Homey.log(body);
+	    callback(null, true);
+	  });
+	}).on('error', function(e) {
+	  Homey.log("Got error: " + e.message);
+	  callback(null, false);
 	});
 
 	Homey.log("done");

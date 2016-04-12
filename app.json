@@ -4,7 +4,7 @@
         "en": "LG Hombot",
         "nl": "LG Hombot"
     },
-    "version": "0.9.2",
+    "version": "0.9.3",
     "compatibility": "0.x || 1.x",
     "author": {
         "name": "Chamid Media",
@@ -91,6 +91,45 @@
             },
 			"filter": "driver_id=vacuum"
         }
+       ],
+        "conditions": [
+        {
+            "id": "cleaning",
+            "title": {
+                "en": "is cleaning",
+                "nl": "is aan het stofzuigen"
+            },
+            "placeholder": {
+              "en": "Select device",
+              "nl": "Selecteer apparaat"
+            },
+			"filter": "driver_id=vacuum"
+        },
+        {
+            "id": "unreachable",
+            "title": {
+                "en": "is unreachable",
+                "nl": "is onbereikbaar"
+            },
+            "placeholder": {
+              "en": "Select device",
+              "nl": "Selecteer apparaat"
+            },
+			"filter": "driver_id=vacuum"
+        },
+        {
+            "id": "charging",
+            "title": {
+                "en": "is charging",
+                "nl": "is aan het opladen"
+            },
+            "placeholder": {
+              "en": "Select device",
+              "nl": "Selecteer apparaat"
+            },
+			"filter": "driver_id=vacuum"
+        }
        ]
+
     }
 }
