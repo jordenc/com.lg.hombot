@@ -108,8 +108,9 @@ Homey.manager('flow').on('condition.cleaning', function(callback, args){
 	getStatus('JSON_ROBOT_STATE="WORKING"', args.device.ipaddress, callback);
 });
 
-Homey.manager('flow').on('condition.unreachable', function(callback, args){
-	
+Homey.manager('flow').on('condition.reachable', function(callback, args){
+	//getStatus('JSON_ROBOT_STATE', args.device.ipaddress, callback);
+	getStatus('JSON_ROBOT_STATE', '192.168.1.223', callback);
 });
 
 Homey.manager('flow').on('condition.charging', function( callback, args ){
