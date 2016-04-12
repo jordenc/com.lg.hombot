@@ -114,8 +114,8 @@
         {
             "id": "cleaning",
             "title": {
-                "en": "is cleaning",
-                "nl": "is aan het stofzuigen"
+                "en": "!{{is|is not}} cleaning",
+                "nl": "!{{is|is niet}} aan het stofzuigen"
             },
             "args": [
 	              {
@@ -132,8 +132,44 @@
         {
             "id": "unreachable",
             "title": {
-                "en": "is unreachable",
-                "nl": "is onbereikbaar"
+                "en": "!{{is|is not}} reachable",
+                "nl": "!{{is|is niet}} bereikbaar"
+            },
+            "args": [
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
+        },
+         {
+            "id": "homing",
+            "title": {
+                "en": "!{{is|is not}} heading to docking station",
+                "nl": "!{{is|is niet}} onderweg naar laadstation"
+            },
+            "args": [
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
+        },
+         {
+            "id": "docking",
+            "title": {
+                "en": "!{{is|is not}} docking",
+                "nl": "!{{is|is niet}} het laadstation aan het betreden"
             },
             "args": [
 	              {
@@ -150,8 +186,8 @@
         {
             "id": "charging",
             "title": {
-                "en": "is charging",
-                "nl": "is aan het opladen"
+                "en": "!{{is|is not}} charging",
+                "nl": "!{{is|is niet}} aan het opladen"
             },
             "args": [
 	              {
