@@ -10,8 +10,14 @@ If you don't do this, you cannot control the vacuum cleaner with Homey using thi
 You need to have the (local) IP-address of your receiver to add the device to Homey (There is no discovery (yet)).
 
 The following cards will be enabled in the flow:
-- Start cleaning
-- Pause cleaning
-- Return to loadingstation.
+- [ACTION] Start cleaning
+- [ACTION] Pause cleaning
+- [ACTION] Return to loadingstation.
+
+- [CONDITION] Is (not) cleaning
+- [CONDITION] Is (not) reachable
+- [CONDITION] Is (not) heading to docking station
+- [CONDITION] Is (not) docking
+- [CONDITION] Is (not) charging
 
 Use at your own risk, I accept no responsibility for any damages caused by using this app.
