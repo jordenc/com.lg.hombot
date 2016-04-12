@@ -33,7 +33,7 @@
               	"large": "drivers/vacuum/assets/images/large.jpg",
 			  	"small": "drivers/vacuum/assets/images/small.jpg"
           	},
-            "class": "vacuum",
+            "class": "other",
             "capabilities": [ "" ],
             "pair": [
                 {
@@ -61,11 +61,17 @@
                 "en": "Start cleaning",
                 "nl": "Stofzuigen starten"
             },
-            "placeholder": {
-              "en": "Select device",
-              "nl": "Selecteer apparaat"
-            },
-			"filter": "driver_id=vacuum"
+            "args": [
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
         },
         {
             "id": "pause",
@@ -73,11 +79,17 @@
                 "en": "Pause cleaning",
                 "nl": "Uitschakelen/standby"
             },
-            "placeholder": {
-              "en": "Select device",
-              "nl": "Selecteer apparaat"
-            },
-			"filter": "driver_id=vacuum"
+            "args": [
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
         },
         {
             "id": "gohome",
@@ -85,11 +97,17 @@
                 "en": "Return to homestation",
                 "nl": "Terug naar laadstation"
             },
-            "placeholder": {
-              "en": "Select device",
-              "nl": "Selecteer apparaat"
-            },
-			"filter": "driver_id=vacuum"
+            "args": [
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
         }
        ],
         "conditions": [
@@ -99,11 +117,17 @@
                 "en": "is cleaning",
                 "nl": "is aan het stofzuigen"
             },
-            "placeholder": {
-              "en": "Select device",
-              "nl": "Selecteer apparaat"
-            },
-			"filter": "driver_id=vacuum"
+            "args": [
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
         },
         {
             "id": "unreachable",
@@ -111,11 +135,17 @@
                 "en": "is unreachable",
                 "nl": "is onbereikbaar"
             },
-            "placeholder": {
-              "en": "Select device",
-              "nl": "Selecteer apparaat"
-            },
-			"filter": "driver_id=vacuum"
+            "args": [
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
         },
         {
             "id": "charging",
@@ -123,11 +153,17 @@
                 "en": "is charging",
                 "nl": "is aan het opladen"
             },
-            "placeholder": {
-              "en": "Select device",
-              "nl": "Selecteer apparaat"
-            },
-			"filter": "driver_id=vacuum"
+            "args": [
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
         }
        ]
 

@@ -2,7 +2,7 @@
 
 function init() {
 	
-	Homey.log("Init LG HOMBOT");
+	Homey.log("Init LG HOMBOT - done");
 	
 }
 

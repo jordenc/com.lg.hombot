@@ -105,7 +105,7 @@ Homey.manager('flow').on('action.turbo', function( callback, args ){
 // CONDITIONS:
 
 Homey.manager('flow').on('condition.cleaning', function(callback, args){
-	getStatus('CLEANING', args.device.ipaddress, callback);
+	getStatus('JSON_ROBOT_STATE="WORKING"', args.device.ipaddress, callback);
 });
 
 Homey.manager('flow').on('condition.unreachable', function(callback, args){
@@ -113,9 +113,20 @@ Homey.manager('flow').on('condition.unreachable', function(callback, args){
 });
 
 Homey.manager('flow').on('condition.charging', function( callback, args ){
-	
+	getStatus('JSON_ROBOT_STATE="CHARGING"', args.device.ipaddress, callback);
 });
 
+Homey.manager('flow').on('condition.pause', function( callback, args ){
+	getStatus('JSON_ROBOT_STATE="PAUSE"', args.device.ipaddress, callback);
+});
+
+Homey.manager('flow').on('condition.homing', function( callback, args ){
+	getStatus('JSON_ROBOT_STATE="HOMING"', args.device.ipaddress, callback);
+});
+
+Homey.manager('flow').on('condition.docking', function( callback, args ){
+	getStatus('JSON_ROBOT_STATE="DOCKING"', args.device.ipaddress, callback);
+});
 //
 
 function sendCommand (cmd, hostIP, callback) {
@@ -163,7 +174,12 @@ function getStatus (cmd, hostIP, callback) {
 	  });
 	  res.on('end', function() {
 	    Homey.log(body);
-	    callback(null, true);
+	    
+	    if (body.indexOf(cmd) >= 0) {	
+		    callback(null, true);
+		} else {
+			callback(null, false);
+		}
 	  });
 	}).on('error', function(e) {
 	  Homey.log("Got error: " + e.message);
