@@ -13,6 +13,13 @@ The following cards will be enabled in the flow:
 - [ACTION] Start cleaning
 - [ACTION] Pause cleaning
 - [ACTION] Return to loadingstation.
+- [ACTION] Set clean mode (zigzag, spiral spot, cell by cell)
+- [ACTION] Set turbo on/off
+- [ACTION] Set repeat on/off
+- [ACTION] Move forward
+- [ACTION] Move backward
+- [ACTION] Turn left
+- [ACTION] Turn right
 
 - [CONDITION] Is (not) cleaning
 - [CONDITION] Is (not) reachable
