@@ -4,7 +4,7 @@
         "en": "LG Hombot",
         "nl": "LG Hombot"
     },
-    "version": "0.9.3",
+    "version": "0.9.4",
     "compatibility": "0.x || 1.x",
     "author": {
         "name": "Chamid Media",
@@ -108,7 +108,201 @@
 	                "filter": "driver_id=vacuum"
 	              }
 	        ]
+        },
+        {
+            "id": "backward",
+            "title": {
+                "en": "Move 50cm (20 inches) backwards",
+                "nl": "Ga 50cm achteruit"
+            },
+            "args": [
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
+        },
+        {
+            "id": "forward",
+            "title": {
+                "en": "Move 50cm (20 inches) forward",
+                "nl": "Ga 50cm vooruit"
+            },
+            "args": [
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
+        },
+        {
+            "id": "left",
+            "title": {
+                "en": "Turn left",
+                "nl": "Keer links"
+            },
+            "args": [
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
+        },
+        {
+            "id": "right",
+            "title": {
+                "en": "Turn right",
+                "nl": "Keer rechts"
+            },
+            "args": [
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
+        },
+        {
+            "id": "cleanmode",
+            "title": {
+                "en": "Set clean mode",
+                "nl": "Stel modus in"
+            },
+            "args": [
+	              {
+	                "name": "mode",
+	                "type": "dropdown",
+	                "values": [
+                        {
+                            "id": "CLEAN_SPOT",
+                            "label": {
+                                "en": "Spiral Spot mode",
+                                "nl": "Spiraal vlek stand"
+                            }
+                        },
+                        {
+                            "id": "CLEAN_SB",
+                            "label": {
+                                "en": "Cell-by-cell mode",
+                                "nl": "Cell by Cell -stand"
+                            }
+                        },
+                        {
+                            "id": "CLEAN_ZZ",
+                            "label": {
+                                "en": "ZigZag mode",
+                                "nl": "Zigzag-stand"
+                            }
+                        }
+                    ]
+	              },
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
+        },
+        {
+            "id": "turbo",
+            "title": {
+                "en": "Set turbo mode",
+                "nl": "Stel turbo stand"
+            },
+            "args": [
+	              {
+	                "name": "mode",
+	                "type": "dropdown",
+	                "values": [
+                        {
+                            "id": "true",
+                            "label": {
+                                "en": "On",
+                                "nl": "Aan"
+                            }
+                        },
+                        {
+                            "id": "false",
+                            "label": {
+                                "en": "Off",
+                                "nl": "Uit"
+                            }
+                        }
+                    ]
+	              },
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
+        },
+        {
+            "id": "repeat",
+            "title": {
+                "en": "Set repeat",
+                "nl": "Herhaling"
+            },
+            "args": [
+	              {
+	                "name": "mode",
+	                "type": "dropdown",
+	                "values": [
+                        {
+                            "id": "true",
+                            "label": {
+                                "en": "On",
+                                "nl": "Aan"
+                            }
+                        },
+                        {
+                            "id": "false",
+                            "label": {
+                                "en": "Off",
+                                "nl": "Uit"
+                            }
+                        }
+                    ]
+	              },
+	              {
+	                "name": "device",
+	                "type": "device",
+	                "placeholder": {
+	                  "en": "Select vacuum cleaner",
+	                  "nl": "Selecteer stofzuiger"
+	                },
+	                "filter": "driver_id=vacuum"
+	              }
+	        ]
         }
+        
        ],
         "conditions": [
         {
