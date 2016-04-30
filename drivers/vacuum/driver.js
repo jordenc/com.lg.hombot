@@ -80,67 +80,67 @@ module.exports.pair = function (socket) {
 // flow action handlers
 
 Homey.manager('flow').on('action.start', function( callback, args ){
-	sendCommand('%7b%22COMMAND%22:%22CLEAN_START%22%7d', args.device.ipaddress, callback); 
+	sendCommand('%7b%22COMMAND%22:%22CLEAN_START%22%7d', devices[args.device.id].settings.ipaddress, callback); 
 });
 
 Homey.manager('flow').on('action.pause', function( callback, args ){
-	sendCommand('%7b%22COMMAND%22:%22PAUSE%22%7d', args.device.ipaddress, callback); 
+	sendCommand('%7b%22COMMAND%22:%22PAUSE%22%7d', devices[args.device.id].settings.ipaddress, callback); 
 });
 
 Homey.manager('flow').on('action.gohome', function( callback, args ){
-	sendCommand('%7b%22COMMAND%22:%22HOMING%22%7d', args.device.ipaddress, callback);
+	sendCommand('%7b%22COMMAND%22:%22HOMING%22%7d', devices[args.device.id].settings.ipaddress, callback);
 });
 
 Homey.manager('flow').on('action.backward', function( callback, args ){
-	sendCommand('%7b%22JOY%22:%22BACKWARD%22%7d', args.device.ipaddress, callback);
+	sendCommand('%7b%22JOY%22:%22BACKWARD%22%7d', devices[args.device.id].settings.ipaddress, callback);
 });
 
 Homey.manager('flow').on('action.forward', function( callback, args ){
-	sendCommand('%7b%22JOY%22:%22FORWARD%22%7d', args.device.ipaddress, callback);
+	sendCommand('%7b%22JOY%22:%22FORWARD%22%7d', devices[args.device.id].settings.ipaddress, callback);
 });
 Homey.manager('flow').on('action.left', function( callback, args ){
-	sendCommand('%7b%22JOY%22:%22LEFT%22%7d', args.device.ipaddress, callback);
+	sendCommand('%7b%22JOY%22:%22LEFT%22%7d', devices[args.device.id].settings.ipaddress, callback);
 });
 Homey.manager('flow').on('action.right', function( callback, args ){
-	sendCommand('%7b%22JOY%22:%22RIGHT%22%7d', args.device.ipaddress, callback);
+	sendCommand('%7b%22JOY%22:%22RIGHT%22%7d', devices[args.device.id].settings.ipaddress, callback);
 });
 Homey.manager('flow').on('action.cleanmode', function( callback, args ){
-	sendCommand('%7b%22COMMAND%22:%7b%22CLEAN_MODE%22:%22' + args.mode + '%22%7d%7d', args.device.ipaddress, callback);
+	sendCommand('%7b%22COMMAND%22:%7b%22CLEAN_MODE%22:%22' + args.mode + '%22%7d%7d', devices[args.device.id].settings.ipaddress, callback);
 });
 
 Homey.manager('flow').on('action.turbo', function( callback, args ){
-	sendCommand('%7b%22COMMAND%22:%7b%22TURBO%22:%22' + args.mode + '%22%7d%7d', args.device.ipaddress, callback);
+	sendCommand('%7b%22COMMAND%22:%7b%22TURBO%22:%22' + args.mode + '%22%7d%7d', devices[args.device.id].settings.ipaddress, callback);
 });
 
 Homey.manager('flow').on('action.repeat', function( callback, args ){
-	sendCommand('%7b%22COMMAND%22:%7b%22REPEAT%22:%22' + args.mode + '%22%7d%7d', args.device.ipaddress, callback);
+	sendCommand('%7b%22COMMAND%22:%7b%22REPEAT%22:%22' + args.mode + '%22%7d%7d', devices[args.device.id].settings.ipaddress, callback);
 });
 
 
 // CONDITIONS:
 
 Homey.manager('flow').on('condition.cleaning', function(callback, args){
-	getStatus('JSON_ROBOT_STATE="WORKING"', args.device.ipaddress, callback);
+	getStatus('JSON_ROBOT_STATE="WORKING"', devices[args.device.id].settings.ipaddress, callback);
 });
 
 Homey.manager('flow').on('condition.reachable', function(callback, args){
-	getStatus('JSON_ROBOT_STATE', args.device.ipaddress, callback);
+	getStatus('JSON_ROBOT_STATE', devices[args.device.id].settings.ipaddress, callback);
 });
 
 Homey.manager('flow').on('condition.charging', function( callback, args ){
-	getStatus('JSON_ROBOT_STATE="CHARGING"', args.device.ipaddress, callback);
+	getStatus('JSON_ROBOT_STATE="CHARGING"', devices[args.device.id].settings.ipaddress, callback);
 });
 
 Homey.manager('flow').on('condition.pause', function( callback, args ){
-	getStatus('JSON_ROBOT_STATE="PAUSE"', args.device.ipaddress, callback);
+	getStatus('JSON_ROBOT_STATE="PAUSE"', devices[args.device.id].settings.ipaddress, callback);
 });
 
 Homey.manager('flow').on('condition.homing', function( callback, args ){
-	getStatus('JSON_ROBOT_STATE="HOMING"', args.device.ipaddress, callback);
+	getStatus('JSON_ROBOT_STATE="HOMING"', devices[args.device.id].settings.ipaddress, callback);
 });
 
 Homey.manager('flow').on('condition.docking', function( callback, args ){
-	getStatus('JSON_ROBOT_STATE="DOCKING"', args.device.ipaddress, callback);
+	getStatus('JSON_ROBOT_STATE="DOCKING"', devices[args.device.id].settings.ipaddress, callback);
 });
 //
 
