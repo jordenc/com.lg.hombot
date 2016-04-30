@@ -30,6 +30,9 @@ The following cards will be enabled in the flow:
 Use at your own risk, I accept no responsibility for any damages caused by using this app.
 
 # Changelog
+**Version 0.9.5:**
+- Added ability to change IP of your Hombot device
+
 **Version 0.9.4:**
 - Conditions are now available
 - New commands for moving Hombot around, cleaning modes, turbo and repeat.

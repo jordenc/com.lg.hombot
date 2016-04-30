@@ -2,6 +2,40 @@
 
 var http = require('http');
 var tempIP = '';
+var devices = {};
+
+module.exports.settings = function( device_data, newSettingsObj, oldSettingsObj, changedKeysArr, callback ) {
+
+    Homey.log ('Changed settings: ' + JSON.stringify(device_data) + ' / ' + JSON.stringify(newSettingsObj) + ' / old = ' + JSON.stringify(oldSettingsObj));
+    
+    try {
+      changedKeysArr.forEach(function (key) {
+        devices[device_data.id].settings[key] = newSettingsObj[key]
+      })
+      callback(null, true)
+    } catch (error) {
+      callback(error)
+    }
+
+};
+
+module.exports.init = function(devices_data, callback) {
+    
+    devices_data.forEach(function initdevice(device) {
+	    
+	    devices[device.id] = device;
+	    
+	    module.exports.getSettings(device, function(err, settings){
+		    devices[device.id].settings = settings;
+		});
+	 
+	});
+	
+	Homey.log("LG Hombot app - init done");
+	
+	callback (null, true);
+};
+
 
 module.exports.pair = function (socket) {
 	// socket is a direct channel to the front-end
@@ -13,9 +47,12 @@ module.exports.pair = function (socket) {
 		Homey.log("LG Hombot app - list_devices tempIP is " + tempIP);
 		
 		var devices = [{
+			name				: tempIP,
 			data: {
-				id			: tempIP,
-				ipaddress 	: tempIP
+				id				: tempIP,
+			},
+			settings: {
+				"ipaddress" 	: tempIP
 			}
 		}];
 
@@ -128,7 +165,7 @@ function sendCommand (cmd, hostIP, callback) {
 	  });
 	}).on('error', function(e) {
 	  Homey.log("Got error: " + e.message);
-	  callback(null, false);
+	  callback(e.message, false);
 	});
 
 	Homey.log("done");
