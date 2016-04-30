@@ -32,6 +32,7 @@ Use at your own risk, I accept no responsibility for any damages caused by using
 # Changelog
 **Version 0.9.5:**
 - Added ability to change IP of your Hombot device
+- **Sadly, this means you will have to remove your device and add it again**
 
 **Version 0.9.4:**
 - Conditions are now available
