@@ -28,3 +28,15 @@ The following cards will be enabled in the flow:
 - [CONDITION] Is (not) charging
 
 Use at your own risk, I accept no responsibility for any damages caused by using this app.
+
+# Changelog
+**Version 0.9.4:**
+- Conditions are now available
+- New commands for moving Hombot around, cleaning modes, turbo and repeat.
+
+
+**Version 0.9.3:**
+- Added new commands
+
+**Version 0.9.0:**
+- First release
