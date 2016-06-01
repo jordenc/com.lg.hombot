@@ -7,6 +7,8 @@ The LG Hombot/VParquet vacuum cleaner does NOT have network-capabilities by defa
 
 If you don't do this, you cannot control the vacuum cleaner with Homey using this app.
 
+**Want to show your appreciation for this app? A donation is possible via http://www.d2c.nl **
+
 You need to have the (local) IP-address of your receiver to add the device to Homey (There is no discovery (yet)).
 
 The following cards will be enabled in the flow:
