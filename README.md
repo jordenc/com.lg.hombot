@@ -32,6 +32,9 @@ The following cards will be enabled in the flow:
 Use at your own risk, I accept no responsibility for any damages caused by using this app.
 
 # Changelog
+**Version 0.9.6:**
+- Bugfix for version 0.9.1
+
 **Version 0.9.5:**
 - Added ability to change IP of your Hombot device
 - **Sadly, this means you will have to remove your device and add it again**
