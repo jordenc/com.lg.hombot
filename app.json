@@ -4,8 +4,8 @@
         "en": "LG Hombot",
         "nl": "LG Hombot"
     },
-    "version": "0.9.6",
-    "compatibility": "0.x || 1.x",
+    "version": "0.9.7",
+    "compatibility": "0.x || 1.x || 2.x",
     "author": {
         "name": "Chamid Media",
         "email": "info@chamidmedia.nl"
